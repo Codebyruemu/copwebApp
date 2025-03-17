@@ -1,0 +1,200 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+main {
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    min-height: 75vh;
+
+  }
+.signupform{
+    border:0.5px solid black;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  
+}
+.dform{
+    display: flex;
+    flex-direction: column; 
+      
+}
+.signupforminner{
+    display: flex;
+    gap:3rem; 
+      
+}
+.sideone{
+    display: flex;
+    flex-direction: column;
+    
+  
+}
+.sidetwo{
+    display: flex;
+    flex-direction: column;
+    
+}
+.sideone input{
+        width: 100%;
+        margin-bottom: 20px;
+        height: 30px;
+        text-align: center;
+        border-radius: 5px;
+        border:0.5px solid black;
+}
+.sidetwo input{
+        width: 100%;
+        margin-bottom: 20px;
+        height: 30px;
+        text-align: center;
+        border-radius: 5px;
+        border:0.5px solid black;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.hidden {
+  display: none;
+  }
+
+.homebutton{
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;  
+}
+.homebutton:hover{
+  background-color: #0056b3;
+}
+.homesiguploginsdiv{
+  display: flex;
+  gap: 1rem;
+}
+.welcometext{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+} 
+#dashboard{
+  display: flex;
+  align-items:start;
+  justify-content:space-around;
+  width: 50%;
+  border-radius: 10px;
+  
+}
+.dashboard-right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.dashboard-image{
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+}
+.dashboard-mid{
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* transparentButtons */
+.transparentBtn {
+  padding: 0.5rem 0.7rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.transparentBtn:hover {
+  background-color: #ddd;
+}
+.wallet {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wallet-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 60%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+ 
+/* Cart Items */
+.walletinput {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+}
+.sidetwobtn{
+  margin: 20px 0px;
+}
+ .sidetwobtn input{
+  max-width: 60px;
+  height:25px;
+  border:0.5px solid #ddd;
+  border-radius: 5px;
+}

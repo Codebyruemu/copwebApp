@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goodwillmpcs signup</title>
+    <link rel="stylesheet" href="copstyle.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <h1>coopweb</h1>
+          <ul>
+            <li><a href="cooperative.html">Home</a></li>
+            <li><a href="cooplogin.html">login</a></li>
+            
+            
+          </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="signupdiv" class="signupform">
+            <h1>signup form</h1>
+            
+            <form class="dform" id="signupForm">
+              <h1 id="formfeedback"></h1>
+              <div class="signupforminner">
+                <div class="sideone">
+                  <input type="text" id="firstname" placeholder="firstname" required/>
+  
+                  <input type="text" id="lastname" placeholder="lastname" required/>
+      
+                  <input type="tel" id="tell" placeholder="phone number" required/>
+      
+                  <input type="text" id="referee" placeholder="referee" required/>
+                </div>
+                <div class="sidetwo">
+                  <input type="text" id="username" placeholder="username" required/>
+    
+                  <input type="password" id="password" placeholder="password"  required/>
+                  <small id="passwordtxt"></small>
+                </div>
+              </div>
+              <label>
+                  <input type="radio" id="agree" style=" width:10px;" required/>i agree with the terms and condition of the orgainzation
+              </label>
+              
+              <button type="submit" id="submitbtn" class="homebutton" style="align-self:flex-end; border:none; margin-bottom:10px" disabled >signup</button>
+                
+            </form>
+            <small style="align-self:flex-end">i have an account <a href="cooplogin.html">login</a></small>
+        </div>
+            
+      </main>
+      
+
+  <script src="./cop.js"></script>
+  <footer class="footer"></footer>
+</body>
+
+</html>

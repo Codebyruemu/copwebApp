@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>goodwillmpcs login</title>
+    <link rel="stylesheet" href="copstyle.css">
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <h1>coopweb</h1>
+          <ul>
+            <li><a href="cooperative.html">Home</a></li>
+            <li><a href="copsignup.html">signup</a></li>
+            
+          </ul>
+        </nav>
+    </header>
+    <main>
+      <h1 id="logintxt">login</h1>
+      <form id="loginForm" action="">
+          <input type="text" id="username" placeholder="username" required/>
+          <input type="password" id="password" placeholder="password" required/>
+        <button type="submit" class="homebutton">login</button>
+        <small style="align-self:flex-start">i don't have an account <a href="copsignup.html">signup</a></small> 
+      </form>  
+      
+      <section id="dashboard" class="hidden">
+        
+          <div id="dashboard-left" class="dashboard-left">
+            
+          </div>
+          
+          <div id="dashboard-mid" class="dashboard-mid">
+
+          </div>
+          <div id="dashboard-right" class="dashboard-right">
+
+          </div>
+      </section>
+    </main>
+    
+    <!-- wallet modal -->
+    <div id="wallet-modal" class="wallet hidden">
+      <div class="wallet-content">
+        <p>Amount selected: </p>
+        <p style="margin-top:0px">&#8358;<span id="selectedsum">0</span></p>
+        <small id="invalidamount" style="color:rgb(82, 143, 12)"></small>
+
+        <div class="walletinput">
+            <div class="sideonebtn">
+              <button style="margin-right: 15px;" class="transparentBtn" onclick="appendAmount(1000)">1000</button>
+              <button style="margin-right: 15px;" class="transparentBtn" onclick="appendAmount(2000)">2000</button>
+              <button class="transparentBtn" onclick="appendAmount(5000)">5000</button>
+            </div>
+            <div class="sidetwobtn">
+              <button class="transparentBtn" onclick="appendAmount(10000)">10000</button>
+              <button class="transparentBtn" onclick="appendAmount(50000)">50000</button>
+              <input type="number" id="otheramount" placeholder="others" onchange="appendAmountFromInput()"/>
+            </div>
+        </div>
+        <div id="walletcontrols" class="walletcontrols">
+        <button id="sendmoni-btn" style="margin-right: 5px;" class="transparentBtn" onclick="sendMoni()">send</button>
+        <button id="cancel-pay" class="transparentBtn" style="margin-right: 5px;" onclick="closeModal()">Close</button>
+        <button  class="transparentBtn" onclick="appendAmount(0)">reset</button>
+        </div>
+      </div>
+    </div>
+      
+  <script src="./cop.js"></script>
+
+  <footer class="footer"></footer>
+</body>
+
+</html>
