@@ -1,7 +1,4 @@
 
-const Modal=document.getElementById("wallet-modal")
-Modal.style.display='none'
-
 let copDataBase= JSON.parse(localStorage.getItem("copDataBase")) || [];
 
 const agreebtn=document.getElementById("agree")
@@ -80,10 +77,10 @@ if(signupForm){
     )
 }
 
-
 // on login
 const dashboard = document.getElementById('dashboard');
-const loginForm=document.getElementById('loginForm')
+const loginForm=document.getElementById('loginForm');
+
 if(loginForm){
     loginForm.addEventListener('submit',(e)=>{
         e.preventDefault()
@@ -100,7 +97,8 @@ if(loginForm){
             createDashboard(userName,password)
             // showDashboard()
             dashboard.classList.remove('hidden')
-            loginForm.classList.add('hidden')  
+            loginForm.classList.add('hidden')
+              
             
         }else{
             newDiv=document.createElement('h3')
@@ -234,12 +232,23 @@ function sendMoni(){
         return;
     }else{
         let userProfiles=JSON.parse(localStorage.getItem('copDataBase'))
+        console.log(userProfiles)
+        console.log(userName+' '+password)
         let userProfile=userProfiles.find((profile)=> 
-        profile.username.toLowerCase()===userName && profile.password===password)
-        let currentMonth=new Date().getMonth()+1
-        for(let month in userProfile.wallet){
-            walletBalance+= userProfile.wallet[month]
-        }
+                        profile.username.toLowerCase()===userName 
+                        && profile.password===password )
+        console.log(userProfile)
+        let currentMonth= new Date().getMonth()
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthName=monthNames[currentMonth]
+        Object.keys(userProfile.wallet).forEach(key=>{
+            if(key.toLowerCase()===monthName.toLowerCase()){
+                userProfile.wallet[key]+=selectedSum
+                localStorage.setItem('copDataBase', JSON.stringify(copDataBase))
+                alert(`money added successfull`)
+                selectedSumDiv.textContent=0
+            }
+        })
     }
 }
 
@@ -274,6 +283,9 @@ function appendAmountFromInput() {
         selectedSumDiv.textContent='';
     }
 }
+//the major problem is modal not hiding by default
+const Modal=document.getElementById("wallet-modal")
+Modal.style.display='none'
 //function to openModal triggered by paywallet btn in dashboard
 //i did this modal display manipulation because it wont hide
 //from the begining of this js file  i set the display of the modal to none so i can use the add wallet btn to display it 
