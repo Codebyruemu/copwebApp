@@ -1,3 +1,4 @@
+// Modified
 let copDataBase = JSON.parse(localStorage.getItem("copDataBase")) || [];
 
 const agreebtn = document.getElementById("agree");
