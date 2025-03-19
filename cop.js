@@ -1,4 +1,4 @@
-// WebMaster-branch
+// WebMaster-branch 😜
 const Modal=document.getElementById("wallet-modal")
 Modal.style.display='none'
 
