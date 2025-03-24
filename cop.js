@@ -1,4 +1,91 @@
-// Modified
+// Function to Display News from api
+const API_URL =`https://newsdata.io/api/1/news?apikey=pub_73890a5a1ba200ee994334f0807921a66361f&q=business&country=ng
+&language=en`;
+
+function fetchNews () {
+    const atricleSection=document.getElementById("articlesection")
+    fetch (API_URL)
+    .then((response) => {
+        if(response.ok){
+            return response.json(); // Explicit return
+        } else {
+            throw new Error('NETWORK RESPONSE ERROR');
+        }
+    })
+    .then(data => {
+        if (data.status === "success"){
+            atricleSection.classList.remove('hidden')
+            displayNews(data.results);
+        } else {
+            console.error("Failed to fetch news:", data);
+        }
+    })
+    .catch((error) => console.error("Error fetch news:", error));
+}
+
+function displayNews(articles){
+    const container= document.getElementById("news-container");
+
+    const wantedArticles = articles.filter((article) => 
+        {return ['title','description','source_url'].some((key) => article[key].includes(''))});
+        
+        let articleCount = 0;
+        for (let i = 0; i < wantedArticles.length; i++) {
+            if (articleCount >= 3) break;
+            const newsItem = document.createElement('div');
+            newsItem.classList.add('col-md-3');
+            newsItem.classList.add('text-warning-emphasis');
+            newsItem.classList.add('p-3');
+            newsItem.classList.add('h-20'); 
+            newsItem.classList.add('fw-semibold'); 
+
+            const newsDescription = document.createElement('p');
+            newsDescription.textContent = wantedArticles[i].description.slice(0, 50) + '...';
+            
+            const newsUrls = document.createElement('a');
+            newsUrls.href = articles[i].source_url;
+            newsUrls.target = '_blank';
+            newsUrls.textContent = 'Read More';
+            newsUrls.classList.add('btn');
+            newsUrls.classList.add('btn-light');
+
+            
+
+            newsItem.appendChild(newsDescription);
+            newsItem.appendChild(newsUrls);
+        
+            container.appendChild(newsItem)
+            articleCount++;
+    }
+}
+fetchNews ();
+
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.getElementById('aboutimg');
+    const carouselText = document.getElementById('carousel-text');
+    const texts = [
+        {
+            title: 'Learn About our History',
+            subtitle: 'Against all odds we have been consistent!'
+        },
+        {
+            title: 'Our Journey',
+            subtitle: 'A story of resilience and growth.'
+        },
+        {
+            title: 'Future Goals',
+            subtitle: 'Continuing to empower our community.'
+        }
+    ];
+
+    carousel.addEventListener('slide.bs.carousel', function (event) {
+        const index = event.to;
+        carouselText.querySelector('h1').textContent = texts[index].title;
+        carouselText.querySelector('h3').textContent = texts[index].subtitle;
+    });
+});
+
+
 let copDataBase = JSON.parse(localStorage.getItem("copDataBase")) || [];
 
 const agreebtn = document.getElementById("agree");
@@ -47,7 +134,8 @@ if (signupForm) {
                     january: 0, february: 0, march: 0, april: 0, may: 0, june: 0, 
                     july: 0, august: 0, september: 0, october: 0, november: 0, december: 0 
                 },
-                dateOfReg: now.toDateString()
+                dateOfReg: now.toDateString(),
+                
             };
 
             copDataBase.push(profile);
@@ -187,7 +275,8 @@ function walletBalance(userName) {
 
 // Functions for Wallet Modal
 const Modal = document.getElementById("wallet-modal");
-Modal.classList.add("hidden"); // Hide modal by default
+Modal.classList.add("hidden"); // Hide modal by default 
+//the code line above is given error on document load but when the login page load the error goes away
 
 function paywallet() {
     Modal.classList.remove("hidden"); // Show modal
@@ -256,4 +345,38 @@ function updateWalletBalance(userName) {
         `;
     }
 }
+// Function to Handle Image Upload
+function handleAddImage(userName) {
+    const imageInput = document.getElementById("profile-image");
+    const imageFile = imageInput.files[0];
+    if (imageFile) {
+        addImageToUserProfile(userName, imageFile);
+    } else {
+        alert("No image selected");
+    }
+}
+
+// Function to Add Image to User Profile
+function addImageToUserProfile(userName, imageFile) {
+    const reader = new FileReader();
+    reader.onload = () => {
+        const image = reader.result;
+        // Retrieve the existing user profiles from local storage
+        let copDataBase = JSON.parse(localStorage.getItem("copDataBase"));
+        // Find the user profile by userId
+        let userProfile = copDataBase.find(profile => 
+            profile.username.toLowerCase() === userName.toLowerCase());
+        if (userProfile) {
+            // Add or update the image for the specific user
+            userProfile.image = image;
+            // Save the updated user profiles back to local storage
+            localStorage.setItem("copDataBase", JSON.stringify(copDataBase));
+            alert("Image added to user profile successfully!");
+        } else {
+            alert("User profile not found!");
+        }
+    };
+    reader.readAsDataURL(imageFile);
+}
+
 

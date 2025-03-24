@@ -1,26 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Insoconsoleata:wght@200..900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Badscripts', 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     
   }
-  
+  /* Apply fonts to specific elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica', sans-serif;
+}
+
+p, a, li {
+  font-family: 'Inconsolata', sans-serif;
+}
+
   /* Navbar */
-  .navbar {
+  /* .navbar {
     background-color: #333;
     color: white;
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-  }
-  .footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
-    display: flex;
-  }
+  } */
+ 
   
-  .navbar ul {
+  /* .navbar ul {
     list-style: none;
     display: flex;
     gap: 1rem;
@@ -29,7 +35,19 @@ body {
   .navbar ul li a {
     color: white;
     text-decoration: none;
-  }
+  } */
+.herosection{
+    background-image: url('./images/imageidea5.jpg');
+    /*background-image:linear-gradient(rgba(231, 207, 207, 0.5),rgba(221, 212, 212, 0.7)), url('../images/khs3.jpeg');  */  
+    background-size: cover;
+    height: 400px;
+    background-repeat: no-repeat;     /*if the image you are using is a small one and you want it to repeat */
+    background-position: center;      /*if the image you are using is a small one and you want it to repeat */
+    background-blend-mode: overlay;   /*to make the text blend with the background */
+    background-attachment: local; 
+    position: relative; 
+    z-index: 1;                       /*to make the background same in all screen */
+}
 main {
     display:flex;
     flex-direction: column;
@@ -37,7 +55,14 @@ main {
     align-items: center;
     min-height: 75vh;
 
-  }
+}
+.margin-add{
+  margin-top: 8rem; /* Adjust the value as needed */
+  
+}
+.cardhero1{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
 .signupform{
     border:0.5px solid black;
     border-radius: 5px;
@@ -197,4 +222,17 @@ input[type="radio"] {
   height:25px;
   border:0.5px solid #ddd;
   border-radius: 5px;
+}
+
+@media (hover:hover){
+  .articlebtn:hover{
+      opacity: 3;
+      box-shadow: -1px 1px 50px rgb(21, 114, 66);
+      transition: ease-in-out .2s;
+  }
+}
+.footer a{
+  display:block;
+  text-decoration: none;
+  color:rgb(6, 148, 61)
 }
